@@ -1,0 +1,42 @@
+- name: Fingerprint Biometric Research Tool
+  url: https://github.com/okashaluai/Fingerprint-Biometric-Research-Tool
+  label:
+    en: Tool · cited
+    de: Tool · zitiert
+  stack: [Python, OpenCV, NumPy]
+  description:
+    en: Modular pipeline for fingerprint minutiae extraction, template inversion and automated 2D-to-3D reconstruction to test how well sensors resist physical spoofing.
+    de: Modulare Pipeline für Minutien-Extraktion, Template-Inversion und automatisierte 2D-zu-3D-Rekonstruktion, um die Spoofing-Resistenz von Fingerabdrucksensoren zu testen.
+  cited:
+    - ProxyPrints: From Database Breach to Spoof, A Plug-and-Play Defense for Biometric Systems
+    - The Threat of Deepfake Fingerprints
+
+- name: Sail2SLEIGH
+  url: ""
+  label:
+    en: Thesis tool · in progress
+    de: Masterarbeit · in Arbeit
+  stack: [Sail, Ghidra SLEIGH, RISC-V]
+  description:
+    en: Generates Ghidra processor definitions from the formal Sail ISA model and diff-tests RISC-V instruction decoding against it.
+    de: Erzeugt Ghidra-Prozessordefinitionen aus dem formalen Sail-ISA-Modell und testet die RISC-V-Dekodierung differenziell dagegen.
+
+- name: Scheme compiler
+  url: ""
+  label:
+    en: Compiler
+    de: Compiler
+  stack: [OCaml, x86-64 assembly]
+  description:
+    en: End-to-end Scheme compiler in OCaml emitting x86 assembly, with AST parsing, semantic analysis, register allocation and stack-frame management.
+    de: Scheme-Compiler in OCaml, der x86-Assembly erzeugt – mit Parser, semantischer Analyse, Registerallokation und Stack-Frame-Verwaltung.
+
+- name: ELF reverse engineering & keygens
+  url: ""
+  label:
+    en: Reverse engineering
+    de: Reverse Engineering
+  stack: [Ghidra, GDB, ltrace, C]
+  description:
+    en: Reversed PIE x86-64 ELF binaries to recover obfuscated validation routines and custom ciphers, then wrote keygens and decryptors in C.
+    de: Reverse Engineering von PIE-x86-64-ELF-Binaries, um verschleierte Prüfroutinen und eigene Chiffren zu rekonstruieren; dazu Keygens und Entschlüsseler in C.

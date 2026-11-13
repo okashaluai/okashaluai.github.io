@@ -1,0 +1,11 @@
+# Shown in the "now" box on the home page. Leave a value empty to hide its line.
+thesis:
+  en: Sail2SLEIGH (in progress)
+  de: Sail2SLEIGH (in Arbeit)
+partner:
+  en: SBA Research
+  de: SBA Research
+learning:
+  en: ""
+  de: ""
+updated: 2026-11

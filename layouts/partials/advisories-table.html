@@ -1,0 +1,34 @@
+{{- /* context: dict "page" . "full" bool */ -}}
+{{- $lang := .page.Language.Lang }}
+{{- $full := .full }}
+<div class="term table-box" id="advisory-table">
+<table>
+<thead>
+<tr>
+<th scope="col">{{ i18n "colId" }}</th>
+<th scope="col">{{ i18n "colTarget" }}</th>
+<th scope="col">{{ i18n "colWeakness" }}</th>
+{{- if $full }}<th scope="col">{{ i18n "colSeverity" }}</th>{{ end }}
+<th scope="col">{{ i18n "colStatus" }}</th>
+{{- if $full }}<th scope="col">{{ i18n "colWriteup" }}</th>{{ else }}<th scope="col">{{ i18n "colDate" }}</th>{{ end }}
+</tr>
+</thead>
+<tbody>
+{{- range site.Data.advisories }}
+<tr data-category="{{ .category }}">
+<td><a href="{{ .url }}">{{ .id }}</a>
+<span class="sub">{{ with .cve }}{{ . }}{{ else }}{{ if eq .cve_status "requested" }}{{ i18n "cveRequested" }}{{ end }}{{ end }}</span></td>
+<td>{{ if .target_url }}<a href="{{ .target_url }}" style="color:inherit">{{ .target }}</a>{{ else }}{{ .target }}{{ end }}</td>
+<td>CWE-{{ .cwe }} {{ index .weakness $lang }}</td>
+{{- if $full }}<td>{{ .severity | default "—" }}</td>{{ end }}
+<td class="ok">{{ i18n (printf "status_%s" .status) }}</td>
+{{- if $full }}
+<td>{{ with .writeup }}<a href="{{ . | relLangURL }}">{{ i18n "read" }}</a>{{ else }}<span class="dim">—</span>{{ end }}</td>
+{{- else }}
+<td class="dim">{{ .date | default "—" }}</td>
+{{- end }}
+</tr>
+{{- end }}
+</tbody>
+</table>
+</div>

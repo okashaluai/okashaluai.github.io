@@ -1,0 +1,23 @@
+<header class="site-header">
+<a class="brand" href="{{ site.Home.RelPermalink }}"><span class="brand-mark" aria-hidden="true">LO</span>{{ site.Title }}</a>
+<nav class="nav" aria-label="Main">
+{{- $current := . }}
+{{- range site.Menus.main }}
+{{- $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
+<a href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a>
+{{- end }}
+<span class="lang">
+{{- $page := . }}
+{{- range $i, $lang := site.Languages }}
+{{- if $i }} / {{ end }}
+{{- if eq $lang.Lang $page.Language.Lang }}<span class="on" aria-current="true">{{ $lang.LanguageName }}</span>
+{{- else }}
+{{- $target := "" }}
+{{- range $page.Translations }}{{ if eq .Language.Lang $lang.Lang }}{{ $target = .RelPermalink }}{{ end }}{{ end }}
+{{- if not $target }}{{ range site.Sites }}{{ if eq .Language.Lang $lang.Lang }}{{ $target = .Home.RelPermalink }}{{ end }}{{ end }}{{ end }}
+<a href="{{ $target }}" hreflang="{{ $lang.LanguageCode }}" lang="{{ $lang.LanguageCode }}">{{ $lang.LanguageName }}</a>
+{{- end }}
+{{- end }}
+</span>
+</nav>
+</header>

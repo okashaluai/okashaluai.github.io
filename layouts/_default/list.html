@@ -1,0 +1,9 @@
+{{ define "main" }}
+<section class="page-head">
+{{ with .Params.eyebrow }}<p class="eyebrow">{{ . }}</p>{{ end }}
+<h1 class="h1">{{ .Title }}</h1>
+</section>
+<section class="section">
+<div class="prose" style="max-width:760px">{{ .Content }}</div>
+</section>
+{{ end }}

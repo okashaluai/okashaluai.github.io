@@ -1,0 +1,40 @@
+{{ define "main" }}
+<section class="article-head">
+<p class="post-meta" style="font-size:13px">{{ .Date.Format "2006-01-02" }} · {{ .ReadingTime }} {{ i18n "minRead" }}{{ with .Params.tags }} · <span style="color:var(--accent)">{{ delimit (apply . "printf" "#%s" ".") " " }}</span>{{ end }}</p>
+<h1 class="h1">{{ .Title }}</h1>
+{{ with .Params.tldr }}<p class="lead">{{ . }}</p>{{ end }}
+</section>
+
+<div class="article-layout">
+<aside class="article-side">
+{{- if gt (len .TableOfContents) 40 }}
+<p class="label">{{ i18n "contents" }}</p>
+{{ .TableOfContents }}
+{{- end }}
+{{- with .Params.advisory }}
+<div class="term facts">
+{{ with .id }}<p><span class="k">id</span> {{ if $.Params.advisory.url }}<a href="{{ $.Params.advisory.url }}">{{ . }}</a>{{ else }}{{ . }}{{ end }}</p>{{ end }}
+{{ with .cve }}<p><span class="k">cve</span> {{ . }}</p>{{ end }}
+{{ with .cwe }}<p><span class="k">cwe</span> {{ . }}</p>{{ end }}
+{{ with .cvss }}<p><span class="k">cvss</span> {{ . }}</p>{{ end }}
+</div>
+{{- end }}
+</aside>
+
+<article class="prose">
+{{- with .Params.summary_de }}
+<div class="summary-de" lang="de">
+<p class="label">{{ i18n "summaryDE" }}</p>
+<p>{{ . }}</p>
+</div>
+{{- end }}
+{{ .Content }}
+{{- with .Params.timeline }}
+<h2 id="timeline">{{ i18n "timeline" }}</h2>
+<ol class="timeline">
+{{- range . }}<li><span class="d">{{ .date }}</span><span>{{ .event }}</span></li>{{ end }}
+</ol>
+{{- end }}
+</article>
+</div>
+{{ end }}

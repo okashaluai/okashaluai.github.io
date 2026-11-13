@@ -1,0 +1,18 @@
+# One entry per disclosure. Newest first.
+# status: reported | fixed | published
+# Only add an entry after the vendor has been notified AND the issue is public.
+- id: GHSA-p47p-pxfh-7w7x
+  url: https://github.com/okashaluai/Fingerprint-Biometric-Research-Tool/security/advisories/GHSA-p47p-pxfh-7w7x
+  cve: ""            # fill in when assigned
+  cve_status: requested
+  target: Fingerprint-Biometric-Research-Tool
+  target_url: https://github.com/okashaluai/Fingerprint-Biometric-Research-Tool
+  cwe: 78
+  weakness:
+    en: OS command injection
+    de: OS-Command-Injection
+  category: injection
+  severity: ""       # e.g. High (CVSS 8.1)
+  status: published
+  date: ""           # YYYY-MM-DD
+  writeup: ""        # e.g. /writeups/ghsa-p47p-pxfh-7w7x/

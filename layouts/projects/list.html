@@ -1,0 +1,21 @@
+{{ define "main" }}
+{{- $lang := .Language.Lang }}
+<section class="page-head">
+<p class="eyebrow">~/projects</p>
+<h1 class="h1">{{ .Title }}</h1>
+<div class="lead">{{ .Content }}</div>
+</section>
+<section class="section">
+<div class="grid">
+{{- range site.Data.projects }}
+<article class="card">
+<span class="chip">{{ index .label $lang }}</span>
+<h3>{{ if .url }}<a class="card-title" href="{{ .url }}">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}</h3>
+<p>{{ index .description $lang }}</p>
+{{- with .cited }}<p class="cited">{{ i18n "citedIn" }}: {{ range $i, $c := . }}{{ if $i }}; {{ end }}<em>{{ $c }}</em>{{ end }}</p>{{ end }}
+<ul class="stack">{{ range .stack }}<li>{{ . }}</li>{{ end }}</ul>
+</article>
+{{- end }}
+</div>
+</section>
+{{ end }}

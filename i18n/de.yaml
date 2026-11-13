@@ -1,0 +1,46 @@
+skip: Zum Inhalt springen
+tagline: security researcher · wien
+heroTitle: Ich finde, reproduziere und erkläre Sicherheitslücken.
+heroLead: Schwachstellenforschung, Reverse Engineering und Embedded Security. MSc IT & Mobile Security (FH Joanneum) und Dipl.-Ing. Embedded Computing Systems (TU Wien).
+seeDisclosures: Zu den Advisories
+downloadCV: Lebenslauf herunterladen
+downloadCVde: Lebenslauf (DE)
+selectedWork: Ausgewählte Arbeiten
+disclosures: Veröffentlichte Schwachstellen
+writeups: Writeups
+plannedWriteups: Die ersten Writeups sind in Arbeit.
+allWriteups: Alle Writeups
+nowThesis: masterarbeit
+nowPartner: partner
+nowDisclosed: gemeldet
+nowLearning: lerne
+nowUpdated: stand
+advisoriesCount:
+  one: "{{ .Count }} Advisory"
+  other: "{{ .Count }} Advisories"
+cveRequested: CVE beantragt
+colId: id
+colTarget: ziel
+colWeakness: schwachstelle
+colSeverity: schweregrad
+colStatus: status
+colWriteup: writeup
+colDate: datum
+read: lesen →
+status_reported: gemeldet
+status_fixed: behoben
+status_published: veröffentlicht
+filterAll: alle
+contents: Inhalt
+minRead: Min. Lesezeit
+summaryDE: Zusammenfassung (DE)
+timeline: Zeitleiste
+note: Hinweis
+email: E-Mail
+pgp: PGP
+legal: Impressum
+rss: RSS
+noPosts: Noch keine Writeups.
+citedIn: Zitiert in
+code: Code
+translationMissing: Diese Seite gibt es noch nicht auf Deutsch.

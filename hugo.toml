@@ -1,0 +1,92 @@
+baseURL = "https://okashaluai.github.io/"
+title = "Luai Okasha"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
+
+[pagination]
+  pagerSize = 20
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+
+[markup]
+  [markup.highlight]
+    style = "github-dark"
+    noClasses = true
+    lineNos = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+    ordered = true
+  [markup.goldmark.renderer]
+    unsafe = false
+
+[params]
+  author = "Luai Okasha"
+  email = "luai.okasha@proton.me"
+  github = "https://github.com/okashaluai"
+  # Paste your LinkedIn profile URL to show the link.
+  linkedin = ""
+  # Add your PGP fingerprint and put the public key at static/pgp.asc to show it.
+  pgpFingerprint = ""
+  # Put the corrected CV PDFs in static/cv/ and set the paths to show the download buttons.
+  cvEN = ""
+  cvDE = ""
+
+[languages]
+  [languages.en]
+    languageName = "EN"
+    languageCode = "en"
+    weight = 1
+    [languages.en.params]
+      description = "Security researcher in Vienna: vulnerability research, reverse engineering and embedded security."
+    [[languages.en.menus.main]]
+      name = "Advisories"
+      pageRef = "/advisories"
+      weight = 1
+    [[languages.en.menus.main]]
+      name = "Research"
+      pageRef = "/research"
+      weight = 2
+    [[languages.en.menus.main]]
+      name = "Writeups"
+      pageRef = "/writeups"
+      weight = 3
+    [[languages.en.menus.main]]
+      name = "Projects"
+      pageRef = "/projects"
+      weight = 4
+    [[languages.en.menus.main]]
+      name = "About"
+      pageRef = "/about"
+      weight = 5
+
+  [languages.de]
+    languageName = "DE"
+    languageCode = "de"
+    weight = 2
+    [languages.de.params]
+      description = "Security Researcher in Wien: Schwachstellenforschung, Reverse Engineering und Embedded Security."
+    [[languages.de.menus.main]]
+      name = "Advisories"
+      pageRef = "/advisories"
+      weight = 1
+    [[languages.de.menus.main]]
+      name = "Forschung"
+      pageRef = "/research"
+      weight = 2
+    [[languages.de.menus.main]]
+      name = "Writeups"
+      pageRef = "/writeups"
+      weight = 3
+    [[languages.de.menus.main]]
+      name = "Projekte"
+      pageRef = "/projects"
+      weight = 4
+    [[languages.de.menus.main]]
+      name = "Über mich"
+      pageRef = "/about"
+      weight = 5

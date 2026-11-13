@@ -1,0 +1,46 @@
+{{ define "main" }}
+<section class="page-head">
+<p class="eyebrow">~/advisories</p>
+<h1 class="h1">{{ .Title }}</h1>
+<div class="lead">{{ .Content }}</div>
+</section>
+
+{{- $cats := slice }}
+{{- range site.Data.advisories }}{{ $cats = $cats | append .category }}{{ end }}
+{{- $cats = uniq $cats }}
+{{- if and (gt (len site.Data.advisories) 3) (gt (len $cats) 1) }}
+<div class="filters" role="group" aria-label="Filter">
+<button type="button" data-filter="all" aria-pressed="true">{{ i18n "filterAll" }}</button>
+{{- range $cats }}<button type="button" data-filter="{{ . }}" aria-pressed="false">{{ . }}</button>{{ end }}
+</div>
+{{- end }}
+
+{{ partial "advisories-table.html" (dict "page" . "full" true) }}
+
+<section class="split">
+<div class="card">
+<h2>{{ .Params.policyTitle }}</h2>
+<p>{{ .Params.policy }}</p>
+</div>
+<div class="card">
+<h2>{{ .Params.reportTitle }}</h2>
+<p>{{ .Params.report }}</p>
+<p class="mono" style="font-size:13px;color:var(--muted)"><a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a>{{ with site.Params.pgpFingerprint }} · PGP {{ . }} · <a href="/pgp.asc">pgp.asc</a>{{ end }} · <a href="/.well-known/security.txt">security.txt</a></p>
+</div>
+</section>
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+(function(){
+  var btns=document.querySelectorAll('[data-filter]');
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    var f=b.getAttribute('data-filter');
+    btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    document.querySelectorAll('#advisory-table tbody tr').forEach(function(r){
+      r.hidden = !(f==='all' || r.getAttribute('data-category')===f);
+    });
+  });});
+})();
+</script>
+{{ end }}

@@ -1,0 +1,10 @@
+<footer class="site-footer">
+<span>© {{ now.Year }} {{ site.Params.author }} · <a href="{{ "impressum/" | relLangURL }}" style="color:inherit">{{ i18n "legal" }}</a></span>
+<span class="links">
+<a href="mailto:{{ site.Params.email }}">email</a>
+<a href="{{ site.Params.github }}" rel="me">github</a>
+{{- with site.Params.linkedin }}<a href="{{ . }}" rel="me">linkedin</a>{{ end }}
+{{- if site.Params.pgpFingerprint }}<a href="/pgp.asc">pgp.asc</a>{{ end }}
+<a href="{{ "writeups/index.xml" | relLangURL }}">rss</a>
+</span>
+</footer>

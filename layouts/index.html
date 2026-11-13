@@ -1,0 +1,58 @@
+{{ define "main" }}
+{{- $lang := .Language.Lang }}
+<section class="hero">
+<div class="hero-main">
+<p class="eyebrow">{{ i18n "tagline" }}</p>
+<h1 class="h1">{{ i18n "heroTitle" }}</h1>
+<p class="lead">{{ i18n "heroLead" }}</p>
+<div class="btns">
+<a class="btn btn-solid" href="{{ "advisories/" | relLangURL }}">{{ i18n "seeDisclosures" }}</a>
+{{- with site.Params.cvEN }}<a class="btn btn-ghost" href="{{ . }}">{{ i18n "downloadCV" }}</a>{{ end }}
+</div>
+</div>
+<div class="hero-side">
+{{- $now := site.Data.now }}
+<div class="term now" aria-label="Now">
+<p class="prompt">$ cat now.txt</p>
+{{- with index $now.thesis $lang }}<p><span class="k">{{ i18n "nowThesis" }}</span><span>{{ . }}</span></p>{{ end }}
+{{- with index $now.partner $lang }}<p><span class="k">{{ i18n "nowPartner" }}</span><span>{{ . }}</span></p>{{ end }}
+<p><span class="k">{{ i18n "nowDisclosed" }}</span><span>{{ i18n "advisoriesCount" (len site.Data.advisories) }}</span></p>
+{{- with index $now.learning $lang }}<p><span class="k">{{ i18n "nowLearning" }}</span><span>{{ . }}</span></p>{{ end }}
+{{- with $now.updated }}<p><span class="k">{{ i18n "nowUpdated" }}</span><span class="dim">{{ . }}</span></p>{{ end }}
+</div>
+</div>
+</section>
+
+<section class="section" aria-labelledby="sel">
+<h2 class="section-title" id="sel">{{ i18n "selectedWork" }}</h2>
+<div class="grid">
+{{- range .Params.cards }}
+<article class="card">
+<span class="chip">{{ .label }}</span>
+<h3>{{ if .url }}<a class="card-title" href="{{ .url | relLangURL }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
+<p>{{ .text }}</p>
+</article>
+{{- end }}
+</div>
+</section>
+
+<section class="section" aria-labelledby="disc">
+<h2 class="section-title" id="disc">{{ i18n "disclosures" }}</h2>
+{{ partial "advisories-table.html" (dict "page" . "full" false) }}
+</section>
+
+<section class="section" aria-labelledby="wu">
+<h2 class="section-title" id="wu">{{ i18n "writeups" }}</h2>
+{{- $posts := where (where .Site.RegularPages "Section" "writeups") "Draft" false }}
+{{- if $posts }}
+<div class="grid post-grid">
+{{- range first 3 $posts.ByDate.Reverse }}
+<a href="{{ .RelPermalink }}"><span class="post-meta">{{ delimit (apply (.Params.tags | default slice) "printf" "#%s" ".") " " }}</span><span class="post-title">{{ .Title }}</span></a>
+{{- end }}
+</div>
+<p style="margin-top:24px"><a href="{{ "writeups/" | relLangURL }}">{{ i18n "allWriteups" }} →</a></p>
+{{- else }}
+<p class="planned">{{ i18n "plannedWriteups" }}</p>
+{{- end }}
+</section>
+{{ end }}

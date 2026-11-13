@@ -1,0 +1,46 @@
+skip: Skip to content
+tagline: security researcher · vienna
+heroTitle: I find, reproduce and explain security bugs.
+heroLead: Vulnerability research, reverse engineering and embedded security. MSc IT & Mobile Security (FH Joanneum) and Dipl.-Ing. Embedded Computing Systems (TU Wien).
+seeDisclosures: See disclosures
+downloadCV: Download CV
+downloadCVde: Lebenslauf (DE)
+selectedWork: Selected work
+disclosures: Disclosures
+writeups: Writeups
+plannedWriteups: First writeups are on the way.
+allWriteups: All writeups
+nowThesis: thesis
+nowPartner: partner
+nowDisclosed: disclosed
+nowLearning: learning
+nowUpdated: updated
+advisoriesCount:
+  one: "{{ .Count }} advisory"
+  other: "{{ .Count }} advisories"
+cveRequested: CVE requested
+colId: id
+colTarget: target
+colWeakness: weakness
+colSeverity: severity
+colStatus: status
+colWriteup: writeup
+colDate: date
+read: read →
+status_reported: reported
+status_fixed: fixed
+status_published: published
+filterAll: all
+contents: Contents
+minRead: min read
+summaryDE: Zusammenfassung (DE)
+timeline: Timeline
+note: Note
+email: Email
+pgp: PGP
+legal: Legal notice
+rss: RSS
+noPosts: No writeups yet.
+citedIn: Cited in
+code: Code
+translationMissing: This page is not available in German yet.
